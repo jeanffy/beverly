@@ -1,0 +1,15 @@
+{% extends 'components/base.twig' %}
+{% block content %}
+
+<h3>Ingress <span class="codespan">{{ ingress.metadata.name }}</span></h3>
+
+<h4>Metadata</h4>
+<div class="code">{{ ingress.metadata.raw }}</div>
+
+<h4>Spec</h4>
+<div class="code">{{ ingress.spec.raw }}</div>
+
+<h4>Status</h4>
+<div class="code">{{ ingress.status.raw }}</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'components/base.twig' %}
+{% block content %}
+
+<h3>Deployment <span class="codespan">{{ deployment.metadata.name }}</span></h3>
+
+<h4>Metadata</h4>
+<div class="code">{{ deployment.metadata.raw }}</div>
+
+<h4>Spec</h4>
+<div class="code">{{ deployment.spec.raw }}</div>
+
+<h4>Status</h4>
+<div class="code">{{ deployment.status.raw }}</div>
+
+{% endblock %}

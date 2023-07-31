@@ -1,0 +1,12 @@
+{
+  "ext": "ts,twig",
+  "exec": "npm run build && npm run boot && :",
+  "ignore": [
+    "**/dist/**/*",
+    "**/node_modules/**/node_modules"
+  ],
+  "verbose": false,
+  "watch": [
+    "src"
+  ]
+}

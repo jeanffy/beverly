@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mblode.twig-language",
+    "ryanluker.vscode-coverage-gutters",
+    "wayou.vscode-todo-highlight",
+  ]
+}

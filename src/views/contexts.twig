@@ -1,0 +1,15 @@
+{% extends 'components/base.twig' %}
+{% block content %}
+
+<h4>Available contexts</h4>
+<div class="card">
+  <ul>
+    {% for context in contexts %}
+    <li>
+      <a href="{{ Routing.context(context.name) }}">{{ context.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

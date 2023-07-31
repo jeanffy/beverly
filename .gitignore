@@ -1,0 +1,12 @@
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+dist
+node_modules
+.DS_Store
+.env
+.env.*
+!.env.dist
+.eslintcache

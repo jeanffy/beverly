@@ -1,0 +1,15 @@
+{% extends 'components/base.twig' %}
+{% block content %}
+
+<h3>Persistent Volume <span class="codespan">{{ pv.metadata.name }}</span></h3>
+
+<h4>Metadata</h4>
+<div class="code">{{ pv.metadata.raw }}</div>
+
+<h4>Spec</h4>
+<div class="code">{{ pv.spec.raw }}</div>
+
+<h4>Status</h4>
+<div class="code">{{ pv.status.raw }}</div>
+
+{% endblock %}
