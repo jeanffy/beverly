@@ -8,7 +8,7 @@
     ".eslintrc.*.json": "jsonc"
   },
   "files.exclude": {
-    "**/dist": true,
-    "**/node_modules": true
+    "**/dist": false,
+    "**/node_modules": false
   }
 }

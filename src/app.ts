@@ -25,7 +25,7 @@ import {
 } from './routing.js';
 
 @injectable()
-export class ZeppelinApp {
+export class BeverlyApp {
   public app: Express;
   private httpServer: http.Server | undefined;
 

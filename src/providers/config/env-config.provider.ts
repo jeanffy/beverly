@@ -9,7 +9,7 @@ export class EnvConfigProvider implements ConfigProvider {
 
   public constructor() {
     const port = process.env.API_LISTEN_PORT;
-    this.listenPort = port !== undefined ? Number(port) : 3000;
+    this.listenPort = port !== undefined ? Number(port) : 28142;
     if (process.env.KUBECONFIG_PATH !== undefined) {
       this.kubeconfigPath = process.env.KUBECONFIG_PATH;
     } else {

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Zeppelin</title>
+    <title>Beverly</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" href="/assets/favicon.ico"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>">
+    {# <link rel="icon" href="/assets/favicon.ico"/> #}
     <link rel="stylesheet" href="/assets/reset.css"/>
     <link rel="stylesheet" href="/assets/app.css"/>
     <script src="/assets/app.js"></script>
@@ -24,6 +25,11 @@
         background-color: darkcyan;
       }
 
+      #top-bar .app-title {
+        color: white;
+        margin-right: 1rem;
+      }
+
       #top-bar a {
         padding: 8px;
       }
@@ -40,6 +46,7 @@
   </head>
   <body>
     <section id="top-bar">
+      <a class="app-title" href="/">Beverly 🔍</a>
       {% for link in breadcrumb %}
         <a href="{{ link.url }}">{{ link.name }}</a>
         {% if not loop.last %}&nbsp;&rsaquo;&nbsp;{% endif %}
