@@ -1,6 +1,6 @@
 {
   "name": "beverly",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A kubernetes dashboard",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   "main": "dist/main.js",
   "type": "module",
   "bin": {
-    "beverly": "bin/beverly.cjs"
+    "beverly": "bin/beverly.mjs"
   },
   "scripts": {
     "boot": "node dist/main.js",
