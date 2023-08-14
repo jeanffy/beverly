@@ -1,0 +1,6 @@
+*
+!bin
+!dist
+!node_modules
+!src/views
+!package.json

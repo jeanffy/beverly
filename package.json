@@ -1,12 +1,13 @@
 {
   "name": "beverly",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A kubernetes dashboard",
   "repository": {
     "type": "git",
     "url": "git@github.com:jeanffy/beverly.git"
   },
   "main": "dist/main.js",
+  "files": ["bin", "dist", "src/views"],
   "type": "module",
   "bin": {
     "beverly": "bin/beverly.mjs"
@@ -18,6 +19,8 @@
     "lint:circular": "madge -c --ts-config ./tsconfig.json --extensions ts src",
     "lint:format": "prettier --check --cache \"{src,test}/**/*.ts\"",
     "lint:syntax": "eslint --max-warnings 0 --cache \"{src,test}/**/*.ts\"",
+    "prepublishOnly": "npm i --omit=dev --omit=optional",
+    "postpublish": "npm i",
     "start": "nodemon dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
