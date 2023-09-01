@@ -1,5 +1,5 @@
 import { V1PodList, V1PodSpec } from '@kubernetes/client-node';
-import { Renderer } from '../base.renderer.js';
+import { Renderer, Template } from '../base.renderer.js';
 import { Breadcrumb } from '../breadcrumb.js';
 import { Kubectl } from '../kubectl.js';
 import { RenderCtx } from '../render.context.js';
@@ -23,7 +23,7 @@ export class PodRenderer extends Renderer {
       injectObjectRawProps(pod, ['metadata', 'spec', 'status']);
       injectObjectRawProps<V1PodSpec>(pod.spec!, ['containers', 'volumes']);
     }
-    return this.twigRenderFilePromise('src/views/pod.twig', {
+    return this.renderTemplate(Template.Pod, {
       ...this.baseTemplateVars(),
       breadcrumb: new Breadcrumb(this.ctx).pod(podName),
       pod,

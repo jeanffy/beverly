@@ -1,5 +1,5 @@
 import { V1PodList } from '@kubernetes/client-node';
-import { Renderer } from '../base.renderer.js';
+import { Renderer, Template } from '../base.renderer.js';
 import { Breadcrumb } from '../breadcrumb.js';
 import { Kubectl } from '../kubectl.js';
 import { RenderCtx } from '../render.context.js';
@@ -19,7 +19,7 @@ export class DeploymentRenderer extends Renderer {
     if (deployment !== undefined) {
       injectObjectRawProps(deployment, ['metadata', 'spec', 'status']);
     }
-    return this.twigRenderFilePromise('src/views/deployment.twig', {
+    return this.renderTemplate(Template.Deployment, {
       ...this.baseTemplateVars(),
       breadcrumb: new Breadcrumb(this.ctx).deployment(deploymentName),
       deployment,

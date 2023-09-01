@@ -20,5 +20,5 @@ To quit, just close the program that is running in the terminal window.
 
 Very simple configuration can be made with environment variables:
 
-- `KUBECONG_PATH`: change kube configuration file path (default is `$HOME/.kube/config`)
+- `KUBECONFIG_PATH`: change kube configuration file path (default is `$HOME/.kube/config`)
 - `API_LISTEN_PORT`: change server listen port (default is `28142`)

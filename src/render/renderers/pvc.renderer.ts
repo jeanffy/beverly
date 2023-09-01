@@ -1,5 +1,5 @@
 import { V1IngressList } from '@kubernetes/client-node';
-import { Renderer } from '../base.renderer.js';
+import { Renderer, Template } from '../base.renderer.js';
 import { Breadcrumb } from '../breadcrumb.js';
 import { Kubectl } from '../kubectl.js';
 import { RenderCtx } from '../render.context.js';
@@ -17,7 +17,7 @@ export class PVCRenderer extends Renderer {
     if (pvc !== undefined) {
       injectObjectRawProps(pvc, ['metadata', 'spec', 'status']);
     }
-    return this.twigRenderFilePromise('src/views/pvc.twig', {
+    return this.renderTemplate(Template.PersistentVolumeClaim, {
       ...this.baseTemplateVars(),
       breadcrumb: new Breadcrumb(this.ctx).persistentVolumeClaim(pvcName),
       pvc,

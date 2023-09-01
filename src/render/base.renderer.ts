@@ -8,6 +8,18 @@ export interface BaseTemplateVars {
   nsName?: string;
 }
 
+export enum Template {
+  Context,
+  Contexts,
+  Deployment,
+  Ingress,
+  Namespace,
+  Pod,
+  PersistentVolume,
+  PersistentVolumeClaim,
+  Service,
+}
+
 export abstract class Renderer {
   public constructor(protected ctx?: RenderCtx) {}
 
@@ -21,10 +33,22 @@ export abstract class Renderer {
     };
   }
 
-  protected async twigRenderFilePromise(templatePath: string, options: twig.RenderOptions): Promise<string> {
+  protected async renderTemplate(template: Template, options: twig.RenderOptions): Promise<string> {
     twig.cache(false);
+    let templateName = 'base';
+    switch (template) {
+      case Template.Context: templateName = 'context'; break;
+      case Template.Contexts: templateName = 'contexts'; break;
+      case Template.Deployment: templateName = 'deployment'; break;
+      case Template.Ingress: templateName = 'ingress'; break;
+      case Template.Namespace: templateName = 'namespace'; break;
+      case Template.Pod: templateName = 'pod'; break;
+      case Template.PersistentVolume: templateName = 'pv'; break;
+      case Template.PersistentVolumeClaim: templateName = 'pvc'; break;
+      case Template.Service: templateName = 'service'; break;
+    }
     return new Promise((resolve, reject) => {
-      twig.renderFile(templatePath, options, (error: Error, html: string) => {
+      twig.renderFile(`src/views/${templateName}.twig`, options, (error: Error, html: string) => {
         if (error) {
           return reject(error);
         }

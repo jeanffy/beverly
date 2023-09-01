@@ -1,5 +1,5 @@
 import { V1DeploymentList, V1IngressList, V1PodList, V1ServiceList } from '@kubernetes/client-node';
-import { Renderer } from '../base.renderer.js';
+import { Renderer, Template } from '../base.renderer.js';
 import { Breadcrumb } from '../breadcrumb.js';
 import { Kubectl } from '../kubectl.js';
 import { RenderCtx } from '../render.context.js';
@@ -17,7 +17,7 @@ export class NamespaceRenderer extends Renderer {
     const services = await kubectl.call<V1ServiceList>('get services');
     const ingresses = await kubectl.call<V1IngressList>('get ingresses');
     const pvcs = await kubectl.call<V1IngressList>('get pvc');
-    return this.twigRenderFilePromise('src/views/namespace.twig', {
+    return this.renderTemplate(Template.Namespace, {
       ...this.baseTemplateVars(),
       breadcrumb: new Breadcrumb(ctxOverride).namespace(nsName),
       nsName,

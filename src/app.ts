@@ -43,8 +43,8 @@ export class BeverlyApp {
       .use((_req: Request, res: Response): void => {
         res.redirect(Routing.contexts());
       })
-      .use((_error: unknown, _req: Request, res: Response, _next: NextFunction): void => {
-        res.status(500).setHeader('Content-Type', 'text/plain').send('Error');
+      .use((error: unknown, _req: Request, res: Response, _next: NextFunction): void => {
+        res.status(500).setHeader('Content-Type', 'text/plain').send(error);
       });
   }
 

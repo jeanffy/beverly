@@ -1,5 +1,5 @@
 import { V1DeploymentList } from '@kubernetes/client-node';
-import { Renderer } from '../base.renderer.js';
+import { Renderer, Template } from '../base.renderer.js';
 import { Breadcrumb } from '../breadcrumb.js';
 import { Kubectl } from '../kubectl.js';
 import { RenderCtx } from '../render.context.js';
@@ -17,7 +17,7 @@ export class PVRenderer extends Renderer {
     if (pv !== undefined) {
       injectObjectRawProps(pv, ['metadata', 'spec', 'status']);
     }
-    return this.twigRenderFilePromise('src/views/pv.twig', {
+    return this.renderTemplate(Template.PersistentVolume, {
       ...this.baseTemplateVars(),
       breadcrumb: new Breadcrumb(this.ctx).persistentVolume(pvName),
       pv,
