@@ -1,13 +1,17 @@
 {
   "name": "beverly",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A kubernetes dashboard",
   "repository": {
     "type": "git",
     "url": "git@github.com:jeanffy/beverly.git"
   },
   "main": "dist/main.js",
-  "files": ["bin", "dist", "src/views"],
+  "files": [
+    "bin",
+    "dist",
+    "src/views"
+  ],
   "type": "module",
   "bin": {
     "beverly": "bin/beverly.mjs"
