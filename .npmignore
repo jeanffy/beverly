@@ -1,7 +1,0 @@
-*
-!bin
-!dist
-!node_modules
-!src/assets
-!src/views
-!package.json

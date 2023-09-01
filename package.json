@@ -8,9 +8,10 @@
   },
   "main": "dist/main.js",
   "files": [
-    "bin",
-    "dist",
-    "src/views"
+    "/bin",
+    "/dist",
+    "/src/assets",
+    "/src/views"
   ],
   "type": "module",
   "bin": {
