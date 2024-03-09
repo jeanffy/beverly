@@ -25,6 +25,14 @@
   <button onclick="copyToClipboard('{{ logsWithTailCmd }}')">Copy</button><br/>
 </div>
 
+{% if portForwardCmd %}
+<div class="panel">
+  Port forward<br/>
+  <span class="codespan">{{ portForwardCmd }}</span>
+  <button onclick="copyToClipboard('{{ portForwardCmd }}')">Copy</button>
+</div>
+{% endif %}
+
 <a name="metadata"></a>
 <h4>Metadata</h4>
 <div class="code">{{ pod.metadata.raw }}</div>
