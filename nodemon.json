@@ -1,9 +1,9 @@
 {
-  "ext": "ts,twig",
+  "ext": "html, scss, ts,vue",
   "exec": "npm run build && npm run boot && :",
   "ignore": [
-    "**/dist/**/*",
-    "**/node_modules/**/node_modules"
+    "dist/**/*",
+    "node_modules/**/*"
   ],
   "verbose": false,
   "watch": [

@@ -1,6 +1,6 @@
 {
   "name": "beverly",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "A kubernetes dashboard",
   "repository": {
     "type": "git",
@@ -9,24 +9,24 @@
   "main": "dist/main.js",
   "files": [
     "/bin",
-    "/dist",
-    "/src/assets",
-    "/src/views"
+    "/dist"
   ],
   "type": "module",
   "bin": {
     "beverly": "bin/beverly.mjs"
   },
   "scripts": {
-    "boot": "node dist/main.js",
-    "build": "tsc",
-    "lint": "concurrently npm:lint:syntax npm:lint:format npm:lint:circular",
+    "boot": "node dist/api/main.js",
+    "build": "run-s build:api build:frontend",
+    "build:api": "tsc -p tsconfig.api.json",
+    "build:frontend": "vite build --emptyOutDir",
+    "lint": "run-p lint:syntax lint:format lint:circular",
     "lint:circular": "madge -c --ts-config ./tsconfig.json --extensions ts src",
     "lint:format": "prettier --check --cache \"{src,test}/**/*.ts\"",
     "lint:syntax": "eslint --max-warnings 0 --cache \"{src,test}/**/*.ts\"",
     "prepublishOnly": "npm i --omit=dev --omit=optional",
     "postpublish": "npm i",
-    "start": "nodemon dist/main.js",
+    "start": "nodemon dist/api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -34,30 +34,35 @@
   "license": "ISC",
   "dependencies": {
     "express": "4.18.2",
-    "inversify": "6.0.1",
+    "awilix": "10.0.1",
     "js-yaml": "4.1.0",
-    "json-format-highlight": "1.0.4",
-    "open": "9.1.0",
-    "reflect-metadata": "0.1.13",
-    "twig": "1.16.0"
+    "open": "9.1.0"
   },
   "devDependencies": {
     "@kubernetes/client-node": "0.18.1",
+    "@tsconfig/node20": "20.1.2",
     "@types/express": "4.17.17",
     "@types/node": "20.4.5",
     "@types/twig": "1.12.9",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
-    "concurrently": "8.1.0",
+    "@vitejs/plugin-vue": "5.0.3",
+    "npm-run-all2": "6.1.2",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.7.0",
     "eslint-import-resolver-typescript": "3.5.3",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsdoc": "40.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
+    "json-format-highlight": "1.0.4",
     "madge": "6.0.0",
     "nodemon": "2.0.22",
+    "pinia": "2.1.7",
     "prettier": "2.8.4",
-    "typescript": "5.0.4"
+    "sass": "1.71.1",
+    "typescript": "5.0.4",
+    "vite": "5.0.11",
+    "vue": "3.4.15",
+    "vue-router": "4.2.5"
   }
 }

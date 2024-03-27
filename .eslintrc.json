@@ -14,17 +14,14 @@
     "prettier"
   ],
   "ignorePatterns": [
-    "bin/*.js",
     "bin/*.mjs",
-    "jest.config.mjs"
+    "vite.config.ts"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "project": [
-      "./tsconfig.json",
-      "./apps/*/tsconfig.json",
-      "./libs/*/tsconfig.json"
+      "./tsconfig.json"
     ]
   },
   "plugins": [

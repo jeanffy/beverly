@@ -12,7 +12,7 @@
       "pauseForSourceMap": true,
       "preLaunchTask": "build",
       "request": "launch",
-      "program": "dist/main.js",
+      "program": "dist/api/main.js",
       "skipFiles": [
         "<node_internals>/**"
       ],

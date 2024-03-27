@@ -22,3 +22,4 @@ Very simple configuration can be made with environment variables:
 
 - `KUBECONFIG_PATH`: change kube configuration file path (default is `$HOME/.kube/config`)
 - `API_LISTEN_PORT`: change server listen port (default is `28142`)
+- `DEBUG_CMD=1`: to print kubectl commands in logs
